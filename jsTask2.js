@@ -197,12 +197,12 @@ let artma = [];
 let azalma = [];
 
 for (let i = 0; i < arr.length; i++) {
-  for (let j = 0; j < arr.length - i - 1; j++) {
-    if (arr[j] > arr[j + 1]) {
-      let temp = arr[j];
-      arr[j] = arr[j + 1];
-        arr[j + 1] = temp;
-    }
+  for (let j = 0; j < arr.length - i - 1; j++) {      //j = i-den 
+    if (arr[j] > arr[j + 1]) {         //burda da j+1  evezine ele yuxaridakini i+1 kimi yazsaq daha aydin bashadushulen olar.
+      let temp = arr[j];          //--1cini(i yazsaydin slice ehtiyac olmayacqdi deyesen.) yadda saxlayir
+      arr[j] = arr[j + 1];        //1cini sonraki ile evez edirik.
+        arr[j + 1] = temp;       // sonrakinina ise ilk evvel menimsetdiyimiz 1cinin deyerini qoyuruq.
+    }                           //bu yuxaridaki komment izahlari 
   }
 }
 artma = arr.slice()
@@ -297,3 +297,22 @@ console.log(a); */
 /* let b = 867
 let convertArr = b.toString().split("");
 console.log(+convertArr[0] + +convertArr[1] + +convertArr[2]); */
+
+// 25)
+let cumle = "Salam, menim adim Gunaydir. Tanishligha shad oldum.";
+let cumleler = cumle.split(".")
+let reverse = ""
+let b = ""; 
+for (let i = 0; i < cumleler.length; i++) {
+  let words = ((cumleler[i]).trim().split(" "));
+  for (let j = words.length; j >= 0; j--) {
+    console.log(words[j]);
+    if (words[j] !== undefined) {
+      reverse+= words[j] + " "
+    }
+  }
+  reverse += ". "
+  
+}
+let test = reverse.replace(/ . /g, ". ")
+console.log(test);
